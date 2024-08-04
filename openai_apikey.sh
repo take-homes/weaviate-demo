@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 API_KEY="<PROVIDE YOUR OPENAI API KEY HERE>"
 

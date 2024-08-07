@@ -49,17 +49,19 @@ This tutorial demonstrates having Weaviate create vectors with a vectorizer. For
 
 # <div id="step0"/> Step 0: Setup your OPENAI API Key
 
-In the file that opes, provide your OPENAI API key
+In the file that opens, provide your OPENAI API key
 
-* Run `$ open openai_apikey.sh`
-* Run `$ ./openai_apikey.sh`
+<button data-command="open ./openai_apikey.sh">Open `openai_apikey.sh`</button>
+
+<button data-command="./openai_apikey.sh">Run `openai_apikey.sh`</button>
 
 # <div id="step1"/> Step 1: Define a data collection & add objects 
 
 We define a data collection (a "collection" in Weaviate) to store objects in. This is analogous to creating a table in relational (SQL) databases.
 
-* Run `$ open load.py`
-* Run `$ python3 load.py`
+<button data-command="open load.py">Open `load.py`</button>
+
+<button data-command="python3 load.py; read">Run `load.py`</button>
 
 The above code will:
 
@@ -78,13 +80,15 @@ Now, let's run some queries on your Weaviate instance. Weaviate powers many diff
 
 Let's start with a similarity search. A `nearText` search looks for objects in Weaviate whose vectors are most similar to the vector for the given input text.
 
-* Run `$ open semantic_search.py`
-* Run `$ python3 semantic_search.py`
+<button data-command="open semantic_search.py">Open `semantic_search.py`</button>
+
+<button data-command="python3 semantic_search.py; read">Run `semantic_search.py`</button>
 
 
 <details>
   <summary>You should see results similar to this:</summary>
-```
+
+```json
 {
     "data": {
         "Get": {
@@ -104,6 +108,7 @@ Let's start with a similarity search. A `nearText` search looks for objects in W
     }
 }
 ```
+
 </details><br>
 
 The response includes a list of objects whose vectors are most similar to the word `biology`. The top 2 results are returned here as we have set a `limit` to `2`.
@@ -117,12 +122,14 @@ The response includes a list of objects whose vectors are most similar to the wo
 
 You can add Boolean filters to searches. For example, the above search can be modified to only in objects that have a "category" value of "ANIMALS". Run the following code to see the results:
 
-* Run `$ open semantic_search_with_filter.py`
-* Run `$ python3 semantic_search_with_filter.py`
+<button data-command="open semantic_search_with_filter.py">Open `semantic_search_with_filter.py`</button>
+
+<button data-command="python3 semantic_search_with_filter.py; read">Run `semantic_search_with_filter.py`</button>
 
 <details>
   <summary>You should see results similar to this:</summary>
-```
+
+```json
 {
     "data": {
         "Get": {
@@ -142,6 +149,7 @@ You can add Boolean filters to searches. For example, the above search can be mo
     }
 }
 ```
+
 </details><br>
 
 The results are limited to objects from the `ANIMALS` category.
@@ -154,14 +162,16 @@ The results are limited to objects from the `ANIMALS` category.
 
 Next, let's try a generative search. A generative search, also called retrieval augmented generation, prompts a large language model (LLM) with a combination of a user query as well as data retrieved from a database.
 
-* Run `$ open generative_search.py`
-* Run `$ python3 generative_search.py`
+<button data-command="open generative_search.py">Open `generative_search.py`</button>
+
+<button data-command="python3 generative_search.py; read">Run `generative_search.py`</button>
 
 Note that the code uses a `single prompt` query, which asks the model generate an answer for each retrieved database object.
 
 <details>
   <summary>You should see results similar to this:</summary>
-```
+
+```json
 {
     "data": {
         "Get": {
@@ -201,8 +211,9 @@ We see that Weaviate has retrieved the same results as before. But now it includ
 # <div id="step5"/> Step 5: Generative search (grouped task)
 The next example uses a grouped task prompt instead to combine all search results and send them to the LLM with a prompt.
 
-* Run `$ open generative_search_grouped.py`
-* Run `$ python3 generative_search_grouped.py`
+<button data-command="open generative_search_grouped.py">Open `generative_search_grouped.py`</button>
+
+<button data-command="python3 generative_search_grouped.py; read">Run `generative_search_grouped.py`</button>
 
 The first returned object will include the generated text. Here's one that we got:
 
